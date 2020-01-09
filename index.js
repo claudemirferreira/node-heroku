@@ -8,10 +8,10 @@ express()
   .use(cors())
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({extended: true}))
-  .get('/', function (req, res) {
-    return res.send({ error: true, message: "hello" });
-  })
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+  .get('/hello', function (req, res) {
+    return res.send({ error: true, message: "hello" });
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
